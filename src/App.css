@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
 *{
   box-sizing: border-box;
 }
 h1, h2, h3, h4, h5, h6{
   margin: 0;
+}
+a{
+  text-decoration: none;
 }
 
 body{
@@ -10,35 +15,67 @@ body{
 }
 
 .container{
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 15px;
+}
+
+.search-input{
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  margin-top: 50px;
+  height: 50px;
+  margin-bottom: 70px; 
+}
+.search-input button{
+  height: 100%;
+  border: 0;
+  cursor: pointer;
+  background-color: #212529;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  transition: background-color .5s;
+}
+.search-input button:hover{
+  background-color: #343a40;
+}
+.search-input button img{
+  height: 100%;
+  color: #fff;
+}
+.search-input input{
+  width: inherit;
+  border-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  height: 100%;
+  border: none;
+  padding: 5px 15px;  
 }
 
 .films{
-  max-width: 1000px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 0 5px;
 }
 
 .film-card{
-  max-width: 450px;
+  width: 450px;
+  padding: 10px;
   margin-bottom: 70px;
   background-color: #fff;
   border-radius: 5px;
-  padding: 15px;
   padding-bottom: 25px;
   display: flex;
   color: #adaeb9;  
   box-shadow: 0 0 38px -9px rgb(34 60 80 / 14%);
-  transition: all .5s;
+  transition: box-shadow .5s;
 }
 .film-card:hover{
   cursor: pointer;
-  box-shadow: 0 0 38px -9px rgb(34 60 80 / 30%);
-  
+  box-shadow: 0 0 38px -9px rgb(34 60 80 / 30%);  
 }
 
 .film-card img{
@@ -47,13 +84,15 @@ body{
   height: 100%;
   position: relative;
   top: -40px;
-  margin-right: 25px;
+  margin-right: 20px;
 }
 
 .movie-column{
-  width: 80%;
   font-size: 14px;
   font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .film-card__title{
@@ -77,6 +116,18 @@ body{
   margin-bottom: 10px;
 }
 .film-card__genre li{
- display: inline;
+ display: inline-block;
  margin-right: 10px;
+}
+
+.footer{
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  color: #2c2c2c;
+  font-size: 18px;
+  margin-top: -50px;
+}
+.footer a{
+  color: #2c2c2c;
+  font-weight: 700;
 }
