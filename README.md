@@ -1,3 +1,7 @@
+# Click there to view web site on gh-page
+
+https://hotsk1y.github.io/react-films-app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
