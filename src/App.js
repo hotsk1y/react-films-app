@@ -7,20 +7,16 @@ import axios from 'axios'
 
 class App extends React.Component {
   state = {
-    films: localStorage.getItem('searchingFilm'),
+    films: [],
     isLoading: true
   }
 
-  getFilms = async (searchValue = localStorage.getItem('searchingFilm')) => {
+  getFilms = async (searchValue = 'spider-man') => {
     const films = await axios.get(`https://api.tvmaze.com/search/shows?q=${searchValue}`)
     this.setState({ films: films.data, isLoading: false })
-    localStorage.setItem('searchingFilm', searchValue)
   }
 
   componentDidMount() {
-    if (!localStorage.length) {
-      localStorage.setItem('searchingFilm', 'spider-man')
-    }
     this.getFilms()
   }
 
@@ -34,10 +30,14 @@ class App extends React.Component {
     return (
       <>
         <div className='container'>
-          <Search searchFilms={this.searchFilms} />
-          {isLoading ? <h2>Loading...</h2> : <Films films={films} searchFilms={this.searchFilms} />}
+          {isLoading
+            ? <h2>Loading...</h2>
+            : <>
+              <Search searchFilms={this.searchFilms} />
+              <Films films={films} searchFilms={this.searchFilms} />
+                {!films.length ? <></> : <Footer />}              
+            </>}
         </div>
-        <Footer />
       </>
     )
   }
